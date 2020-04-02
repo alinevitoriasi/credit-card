@@ -45,3 +45,7 @@ flutter:
     - family: credit-card
       fonts:
         - asset: font/credit-card.ttf
+    - family: Montserrat
+      fonts:
+        - asset: font/Montserrat-Medium.ttf
+         

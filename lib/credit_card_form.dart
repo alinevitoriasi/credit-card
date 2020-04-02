@@ -111,7 +111,7 @@ class _CreditCardFormState extends State<CreditCardForm> {
 
   @override
   void didChangeDependencies() {
-    themeColor = widget.themeColor ?? Theme.of(context).primaryColor;
+    themeColor = Color(0xff1B9999);
     super.didChangeDependencies();
   }
 
@@ -121,6 +121,7 @@ class _CreditCardFormState extends State<CreditCardForm> {
       data: ThemeData(
         primaryColor: themeColor.withOpacity(0.8),
         primaryColorDark: themeColor,
+        fontFamily: 'Montserrat',
       ),
       child: Form(
         child: Column(
@@ -135,54 +136,56 @@ class _CreditCardFormState extends State<CreditCardForm> {
                   color: widget.textColor,
                 ),
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Card number',
+                  labelText: 'Número do cartão',
                   hintText: 'xxxx xxxx xxxx xxxx',
                 ),
                 keyboardType: TextInputType.number,
                 textInputAction: TextInputAction.next,
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              margin: const EdgeInsets.only(left: 16, top: 8, right: 16),
-              child: TextFormField(
-                controller: _expiryDateController,
-                cursorColor: widget.cursorColor ?? themeColor,
-                style: TextStyle(
-                  color: widget.textColor,
+            Row(
+              children: <Widget>[
+                Container(
+                  width: 180,
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  margin: const EdgeInsets.only(left: 16, top: 8, right: 16),
+                  child: TextFormField(
+                    controller: _expiryDateController,
+                    cursorColor: widget.cursorColor ?? themeColor,
+                    style: TextStyle(
+                      color: widget.textColor,
+                    ),
+                    decoration: InputDecoration(
+                        labelText: 'Validade', hintText: 'MM/AA'),
+                    keyboardType: TextInputType.number,
+                    textInputAction: TextInputAction.next,
+                  ),
                 ),
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Expired Date',
-                    hintText: 'MM/YY'),
-                keyboardType: TextInputType.number,
-                textInputAction: TextInputAction.next,
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              margin: const EdgeInsets.only(left: 16, top: 8, right: 16),
-              child: TextField(
-                focusNode: cvvFocusNode,
-                controller: _cvvCodeController,
-                cursorColor: widget.cursorColor ?? themeColor,
-                style: TextStyle(
-                  color: widget.textColor,
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    margin: const EdgeInsets.only(left: 16, top: 8, right: 16),
+                    child: TextField(
+                      focusNode: cvvFocusNode,
+                      controller: _cvvCodeController,
+                      cursorColor: widget.cursorColor ?? themeColor,
+                      style: TextStyle(
+                        color: widget.textColor,
+                      ),
+                      decoration: InputDecoration(
+                        labelText: 'CVV',
+                      ),
+                      keyboardType: TextInputType.number,
+                      textInputAction: TextInputAction.done,
+                      onChanged: (String text) {
+                        setState(() {
+                          cvvCode = text;
+                        });
+                      },
+                    ),
+                  ),
                 ),
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'CVV',
-                  hintText: 'XXXX',
-                ),
-                keyboardType: TextInputType.number,
-                textInputAction: TextInputAction.done,
-                onChanged: (String text) {
-                  setState(() {
-                    cvvCode = text;
-                  });
-                },
-              ),
+              ],
             ),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -194,8 +197,7 @@ class _CreditCardFormState extends State<CreditCardForm> {
                   color: widget.textColor,
                 ),
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Card Holder',
+                  labelText: 'Nome do titular (como no cartão)',
                 ),
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.next,
