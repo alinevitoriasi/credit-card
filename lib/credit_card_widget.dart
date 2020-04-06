@@ -158,10 +158,10 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
         borderRadius: BorderRadius.circular(20),
         boxShadow: const <BoxShadow>[
           BoxShadow(
-            color: Colors.black26,
-            offset: Offset(0, 0),
-            blurRadius: 24,
-          ),
+                  color: Colors.black26,
+                  offset: Offset(0, 0),
+                  blurRadius: 24,
+                )
         ],
         // gradient: backgroundGradientColor,
       ),
@@ -172,17 +172,17 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
       child: Stack(
         children: <Widget>[
           Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: const <BoxShadow>[
-                BoxShadow(
-                  color: Colors.black26,
-                  offset: Offset(0, 0),
-                  blurRadius: 24,
-                )
-              ],
-              gradient: backgroundGradientColor,
-            ),
+          //   decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.circular(20),
+          //     boxShadow: const <BoxShadow>[
+          //       BoxShadow(
+          //         color: Colors.black26,
+          //         offset: Offset(0, 0),
+          //         blurRadius: 24,
+          //       )
+          //     ],
+          //     gradient: backgroundGradientColor,
+          //   ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -280,9 +280,10 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
           (orientation == Orientation.portrait ? height / 4 : height / 2),
       child: Stack(
         children: <Widget>[
+          
           Container(
             decoration: BoxDecoration(
-              color: Color(0xff536DFE),
+              color: Color(0xff4A61E4),
               borderRadius: BorderRadius.circular(20),
               boxShadow: const <BoxShadow>[
                 BoxShadow(
@@ -293,9 +294,12 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
               ],
               // gradient: backgroundGradientColor,
             ),
+            
+            
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                
                 Container(
                   height: 16,
                 ),
